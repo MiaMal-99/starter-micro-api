@@ -7,6 +7,6 @@ res.writeHead(200);
 };
 
 const server = http.createServer(requestListener);
-server.listen(process.env.PORT || 3000, host, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log(`Server is running on http://${host}:${port}`);
 });
