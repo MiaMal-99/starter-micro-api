@@ -1,7 +1,12 @@
 var http = require('http');
-http.createServer(function (req, res) {
-    console.log(`Just got a request at ${req.url}!`)
-    res.write('Yo!');
-    console.log('request has received!')
-    res.end();
-}).listen(process.env.PORT || 3000);
+const port = 8000;
+
+const requestListener = function (req, res) {
+res.writeHead(200);
+    res.end(`<html><body><h1>This is HTML</h1></body></html>`);
+};
+
+const server = http.createServer(requestListener);
+server.listen(process.env.PORT || 3000, host, () => {
+    console.log(`Server is running on http://${host}:${port}`);
+});
